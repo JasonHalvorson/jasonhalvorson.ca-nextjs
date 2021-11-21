@@ -1,2 +1,1 @@
-# jasonhalvorson.ca-nextjs
- 
+# JasonHalvorson.ca Next.js App
