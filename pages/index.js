@@ -1,39 +1,38 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Sidenav from '../components/Sidenav/Sidenav';
-import { JavascriptIcon, ReactIcon, NodeJsIcon, PythonIcon, CssIcon, SassIcon, HtmlIcon, PhpIcon, UbuntuIcon, CentosIcon, WordpressIcon } from '../utils/icons';
+import { JavascriptIcon, ReactIcon, NextjsIcon, NodejsIcon, PythonIcon, CssIcon, SassIcon, HtmlIcon, PhpIcon, UbuntuIcon, CentosIcon, GithubIcon } from '../utils/icons';
 
-// TODO: Add descriptions
 const technologies = [
     {
-        name        : 'JavaScript, React, Node.js',
-        icons       : [ JavascriptIcon, ReactIcon, NodeJsIcon ],
-        description : ''
+        name        : 'JavaScript, React, Next.js, Node.js',
+        icons       : [ JavascriptIcon, ReactIcon, NextjsIcon, NodejsIcon ],
+        description : 'Knowledgeable in JavaScript and JavaScript frameworks/libraries such as React, Next.js, and Node.js.'
     },
     {
         name        : 'Python',
         icons       : [ PythonIcon ],
-        description : ''
+        description : 'Basic understanding of the Python language. Currently learning more via experimentation and online courses!'
     },
     {
         name        : 'HTML, CSS, Sass',
         icons       : [ HtmlIcon, CssIcon, SassIcon ],
-        description : ''
+        description : 'In-depth knowledge for creating beautiful, responsive websites with HTML, CSS and SASS.'
     },
     {
         name        : 'PHP',
         icons       : [ PhpIcon ],
-        description : ''
+        description : 'Over three years of experience with creating functional back-end websites with PHP.'
     },
     {
         name        : 'Ubuntu, Centos',
         icons       : [ UbuntuIcon, CentosIcon ],
-        description : ''
+        description : 'Proficient understanding of how to navigate and work within the Linux CLI.'
     },
     {
-        name        : 'Wordpress',
-        icons       : [ WordpressIcon ],
-        description : ''
+        name        : 'GitHub',
+        icons       : [ GithubIcon ],
+        description : 'Understanding of the GitHub platform and how to utilize Git to manage version control.'
     }
 ];
 
