@@ -1,56 +1,83 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Sidenav from '../components/Sidenav/Sidenav';
+import { JavascriptIcon, ReactIcon, NodeJsIcon, PythonIcon, CssIcon, SassIcon, HtmlIcon, PhpIcon, UbuntuIcon, CentosIcon, WordpressIcon } from '../utils/icons';
+
+// TODO: Add descriptions
+const technologies = [
+    {
+        name        : 'JavaScript, React, Node.js',
+        icons       : [ JavascriptIcon, ReactIcon, NodeJsIcon ],
+        description : ''
+    },
+    {
+        name        : 'Python',
+        icons       : [ PythonIcon ],
+        description : ''
+    },
+    {
+        name        : 'HTML, CSS, Sass',
+        icons       : [ HtmlIcon, CssIcon, SassIcon ],
+        description : ''
+    },
+    {
+        name        : 'PHP',
+        icons       : [ PhpIcon ],
+        description : ''
+    },
+    {
+        name        : 'Ubuntu, Centos',
+        icons       : [ UbuntuIcon, CentosIcon ],
+        description : ''
+    },
+    {
+        name        : 'Wordpress',
+        icons       : [ WordpressIcon ],
+        description : ''
+    }
+];
 
 export default function Home() {
     return (
-        <div>
+        <div className="dark:bg-gray-900 bg-gray-100 transition-colors duration-300">
             <Head>
-                <title>Create Next App</title>
+                <title>Jason Halvorson: Home</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <Sidenav>
-                <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-                    <h1 className="text-6xl font-bold text-jhgreen">
-                        Welcome to{' '}
-                        <a className="text-jhpurple" href="https://nextjs.org">
-                            Next.js!
-                        </a>
-                    </h1>
-
-                    <p className="mt-3 text-2xl">
-                        Get started by editing <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">pages/index.js</code>
-                    </p>
-
-                    <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-                        <a href="https://nextjs.org/docs" className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600">
-                            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-                            <p className="mt-4 text-xl">Find in-depth information about Next.js features and API.</p>
-                        </a>
-
-                        <a href="https://nextjs.org/learn" className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600">
-                            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-                            <p className="mt-4 text-xl">Learn about Next.js in an interactive course with quizzes!</p>
-                        </a>
-
-                        <a href="https://github.com/vercel/next.js/tree/master/examples" className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600">
-                            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-                            <p className="mt-4 text-xl">Discover and deploy boilerplate example Next.js projects.</p>
-                        </a>
-
-                        <a href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app" className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600">
-                            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-                            <p className="mt-4 text-xl">Instantly deploy your Next.js site to a public URL with Vercel.</p>
-                        </a>
+                {/* TODO: Deal with sizing on larger monitors */}
+                <div className="relative dark:bg-gray-800 bg-white py-20 transition-colors duration-300">
+                    <div className="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
+                        <p className="mb-2 text-3xl font-extrabold dark:text-white text-gray-900 tracking-tight sm:text-5xl transition-colors duration-300">Jason Halvorson</p>
+                        <h2 className="text-base font-semibold tracking-wider text-jhpurple uppercase">Full-Stack Web Developer / Software Engineer</h2>
+                        <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">I'm a full-stack web developer with a focus on functionality and UI/UX design. Want to know how I may help your project? Check out my project portfolio and online resume.</p>
+                        <div className="mt-12">
+                            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                                {technologies.map(({ name, icons, description }) => (
+                                    <div key={name} className="pt-6">
+                                        <div className="flow-root dark:bg-gray-900 bg-gray-50 rounded-lg px-6 pb-8 shadow-lg shadow-jhblue transition-colors duration-300">
+                                            <div className="-mt-6">
+                                                <div>
+                                                    {icons.map((IconName) => (
+                                                        <span key={IconName} className="inline-flex items-center justify-center p-3 mx-2 bg-jhblue rounded-md shadow-lg">
+                                                            <div className="h-7 w-7 text-white" aria-hidden="true">
+                                                                <IconName />
+                                                            </div>
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                                <h3 className="mt-8 text-lg font-medium dark:text-white text-gray-900 tracking-tight transition-colors duration-300">{name}</h3>
+                                                {/* REVIEW: Make sure the font color looks good on each mode */}
+                                                <p className="mt-5 text-base dark:text-gray-400 text-gray-500 transition-colors duration-300">{description}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
-                </main>
-
-                <footer className="flex items-center justify-center w-full h-24 border-t">
-                    <a className="flex items-center justify-center" href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app" target="_blank" rel="noopener noreferrer">
-                        Powered by <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-                    </a>
-                </footer>
+                </div>
             </Sidenav>
         </div>
     );
