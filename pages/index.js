@@ -55,7 +55,7 @@ export default function Home() {
                             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                                 {technologies.map(({ name, icons, description }) => (
                                     <div key={name} className="pt-6">
-                                        <div className="flow-root dark:bg-gray-900 bg-gray-50 rounded-lg px-6 pb-8 shadow-lg shadow-jhblue transition-colors duration-300">
+                                        <div className="flow-root dark:bg-gray-900 bg-gray-50 rounded-lg px-6 pb-8 shadow-lg hover:shadow-jhblue transition duration-300">
                                             <div className="-mt-6">
                                                 <div>
                                                     {icons.map((IconName) => (
