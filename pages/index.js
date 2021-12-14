@@ -58,6 +58,7 @@ export default function Home() {
                                         <div className="flow-root dark:bg-gray-900 bg-gray-50 rounded-lg px-6 pb-8 shadow-lg hover:shadow-jhblue transition duration-300">
                                             <div className="-mt-6">
                                                 <div>
+                                                    {/* FIXME: Fix Icon spacing on smaller screen sizes */}
                                                     {icons.map((IconName) => (
                                                         <span key={IconName} className="inline-flex items-center justify-center p-3 mx-2 bg-jhblue rounded-md shadow-lg">
                                                             <div className="h-7 w-7 text-white" aria-hidden="true">

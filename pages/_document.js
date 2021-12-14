@@ -9,7 +9,9 @@ class MyDocument extends Document {
     render() {
         return (
             <Html className="h-full bg-gray-100">
-                <Head />
+                <Head>
+                    <link rel="stylesheet" href="/main.css" />
+                </Head>
                 <body className="h-full dark:bg-gray-900 transition-colors duration-300">
                     <Main />
                     <NextScript />
