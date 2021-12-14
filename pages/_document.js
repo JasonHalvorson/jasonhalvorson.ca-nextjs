@@ -11,6 +11,7 @@ class MyDocument extends Document {
             <Html className="h-full bg-gray-100">
                 <Head>
                     <link rel="stylesheet" href="/main.css" />
+                    <link rel="icon" href="/logo.png" />
                 </Head>
                 <body className="h-full dark:bg-gray-900 transition-colors duration-300">
                     <Main />

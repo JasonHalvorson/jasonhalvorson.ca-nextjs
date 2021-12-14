@@ -41,7 +41,6 @@ export default function Home() {
         <div className="dark:bg-gray-900 bg-gray-100 transition-colors duration-300">
             <Head>
                 <title>Jason Halvorson: Home</title>
-                <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <Sidenav>

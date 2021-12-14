@@ -2,11 +2,18 @@ import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { CalendarIcon, ChartBarIcon, FolderIcon, HomeIcon, InboxIcon, MenuIcon, UsersIcon, XIcon } from '@heroicons/react/outline';
 import DarkModeToggle from './DarkModeToggle';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
-const navigation = [ { name: 'Dashboard', href: '#', icon: HomeIcon, current: true }, { name: 'Team', href: '#', icon: UsersIcon, current: false }, { name: 'Projects', href: '#', icon: FolderIcon, current: false }, { name: 'Calendar', href: '#', icon: CalendarIcon, current: false }, { name: 'Documents', href: '#', icon: InboxIcon, current: false }, { name: 'Reports', href: '#', icon: ChartBarIcon, current: false } ];
+const navigation = [ { name: 'Home', href: '/', icon: HomeIcon, current: true }, { name: 'Portfolio', href: '/portfolio', icon: FolderIcon, current: false }, { name: 'Calendar', href: '#', icon: CalendarIcon, current: false }, { name: 'Documents', href: '#', icon: InboxIcon, current: false }, { name: 'Reports', href: '#', icon: ChartBarIcon, current: false } ];
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ');
+}
+
+function isCurrent(href) {
+    const router = useRouter();
+    return router.pathname === href;
 }
 
 export default function Sidenav(props) {
@@ -37,10 +44,12 @@ export default function Sidenav(props) {
                                 </div>
                                 <nav className="mt-5 px-2 space-y-1">
                                     {navigation.map((item) => (
-                                        <a key={item.name} href={item.href} className={classNames(item.current ? 'dark:bg-gray-900 bg-gray-100 dark:text-white text-gray-900' : 'dark:text-gray-300 text-gray-600 dark:hover:bg-gray-700 hover:bg-gray-50 dark:hover:text-white hover:text-gray-900', 'group flex items-center px-2 py-2 text-base font-medium rounded-md transition-colors duration-300')}>
-                                            <item.icon className={classNames(item.current ? 'dark:text-gray-300 text-gray-500' : 'text-gray-400 dark:group-hover:text-gray-300 group-hover:text-gray-500', 'mr-4 flex-shrink-0 h-6 w-6 transition-colors duration-300')} aria-hidden="true" />
-                                            {item.name}
-                                        </a>
+                                        <Link href={item.href} key={item.name}>
+                                            <a className={classNames(isCurrent(item.href) ? 'dark:bg-gray-900 bg-gray-100 dark:text-white text-gray-900' : 'dark:text-gray-300 text-gray-600 dark:hover:bg-gray-700 hover:bg-gray-50 dark:hover:text-white hover:text-gray-900', 'group flex items-center px-2 py-2 text-base font-medium rounded-md transition-colors duration-300')}>
+                                                <item.icon className={classNames(isCurrent(item.href) ? 'dark:text-gray-300 text-gray-500' : 'text-gray-400 dark:group-hover:text-gray-300 group-hover:text-gray-500', 'mr-4 flex-shrink-0 h-6 w-6 transition-colors duration-300')} aria-hidden="true" />
+                                                {item.name}
+                                            </a>
+                                        </Link>
                                     ))}
                                 </nav>
                             </div>
@@ -65,10 +74,12 @@ export default function Sidenav(props) {
                         </div>
                         <nav className="mt-5 flex-1 px-2 space-y-1">
                             {navigation.map((item) => (
-                                <a key={item.name} href={item.href} className={classNames(item.current ? 'dark:bg-gray-900 bg-gray-100 dark:text-white text-gray-900' : 'dark:text-gray-300 text-gray-600 dark:hover:bg-gray-700 hover:bg-gray-50 dark:hover:text-white hover:text-gray-900', 'group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors duration-300')}>
-                                    <item.icon className={classNames(item.current ? 'dark:text-gray-300 text-gray-500' : 'text-gray-400 dark:group-hover:text-gray-300 group-hover:text-gray-500', 'mr-3 flex-shrink-0 h-6 w-6 transition-colors duration-300')} aria-hidden="true" />
-                                    {item.name}
-                                </a>
+                                <Link href={item.href} key={item.name}>
+                                    <a className={classNames(isCurrent(item.href) ? 'dark:bg-gray-900 bg-gray-100 dark:text-white text-gray-900' : 'dark:text-gray-300 text-gray-600 dark:hover:bg-gray-700 hover:bg-gray-50 dark:hover:text-white hover:text-gray-900', 'group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors duration-300')}>
+                                        <item.icon className={classNames(isCurrent(item.href) ? 'dark:text-gray-300 text-gray-500' : 'text-gray-400 dark:group-hover:text-gray-300 group-hover:text-gray-500', 'mr-3 flex-shrink-0 h-6 w-6 transition-colors duration-300')} aria-hidden="true" />
+                                        {item.name}
+                                    </a>
+                                </Link>
                             ))}
                         </nav>
                     </div>
