@@ -40,7 +40,7 @@ export default function Home() {
     return (
         <div className="dark:bg-gray-900 bg-gray-100 transition-colors duration-300">
             <Head>
-                <title>Jason Halvorson: Home</title>
+                <title>Jason Halvorson | Home</title>
             </Head>
 
             <Sidenav>

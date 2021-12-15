@@ -55,7 +55,7 @@ export default function Portfolio() {
     return (
         <div className="dark:bg-gray-900 bg-gray-100 transition-colors duration-300">
             <Head>
-                <title>Jason Halvorson: Home</title>
+                <title>Jason Halvorson | Portfolio</title>
             </Head>
 
             <Breadcrumbs pages={[ { name: 'Projects', href: '/projects', current: true }, { name: 'Gaming Nero', href: '#', current: false } ]} />

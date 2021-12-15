@@ -4,6 +4,7 @@ import { CalendarIcon, ChartBarIcon, FolderIcon, HomeIcon, InboxIcon, MenuIcon, 
 import DarkModeToggle from './DarkModeToggle';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Footer from '../Footer/Footer';
 
 const navigation = [ { name: 'Home', href: '/', icon: HomeIcon, current: true }, { name: 'Portfolio', href: '/portfolio', icon: FolderIcon, current: false }, { name: 'Calendar', href: '#', icon: CalendarIcon, current: false }, { name: 'Documents', href: '#', icon: InboxIcon, current: false }, { name: 'Reports', href: '#', icon: ChartBarIcon, current: false } ];
 
@@ -102,6 +103,7 @@ export default function Sidenav(props) {
                         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">{props.children}</div>
                     </div>
                 </main>
+                <Footer />
             </div>
         </div>
     );
