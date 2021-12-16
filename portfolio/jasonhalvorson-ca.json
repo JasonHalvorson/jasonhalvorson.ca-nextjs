@@ -1,0 +1,7 @@
+{
+    "title": "JasonHalvorson.ca",
+    "description": "The website you are currently on!",
+    "image": "https://via.placeholder.com/600x400",
+    "tags": ["Next.js", "React", "JavaScript"],
+    "order": 1
+}
