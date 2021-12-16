@@ -2,17 +2,7 @@ import Head from 'next/head';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import { getAllPieceSlugs, getPieceData } from '../../lib/portfolio';
 
-// FIXME: this page is using server-side rendering, and breaking dark mode
-// Dark mode is working on this page, but still causes a flash of light mode beforehand.
-
 export default function PortfolioItem({ pieceData }) {
-    // const router = useRouter();
-    // const currentSlug = router.query.portfolioItem;
-    console.log(pieceData);
-
-    // // check if slug matches any of the portfolio items slugs
-    // const pieceData = portfolioItems.find((item) => item.slug === currentSlug);
-
     return (
         <div className="dark:bg-gray-900 bg-gray-100 transition-colors duration-300">
             <Head>
