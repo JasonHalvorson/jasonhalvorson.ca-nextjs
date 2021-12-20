@@ -13,7 +13,7 @@ export default function PortfolioItem({ pieceData }) {
             <p>{pieceData.title}</p>
             <p>{pieceData.description}</p>
             {pieceData.tags.map((tag) => (
-                <span key={tag} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-jhpurple text-white mr-1">
+                <span key={tag} className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-jhpurple text-white mr-1">
                     {tag}
                 </span>
             ))}

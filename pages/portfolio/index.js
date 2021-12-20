@@ -37,6 +37,7 @@ export default function Portfolio({ allPiecesData }) {
                                 <div className="flex-1 pieces-center">
                                     {piece.tags.map((tag) => (
                                         <span key={tag} className="inline-flex pieces-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-jhpurple text-white mr-1">
+                                        <span key={tag} className="inline-flex pieces-center px-3 py-0.5 rounded-full text-sm font-medium bg-jhpurple text-white mr-1">
                                             {tag}
                                         </span>
                                     ))}
