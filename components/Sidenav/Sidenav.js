@@ -14,7 +14,10 @@ function classNames(...classes) {
 
 function isCurrent(href) {
     const router = useRouter();
-    return router.pathname === href;
+    if (href === '/') {
+        return router.asPath === '/';
+    }
+    return router.asPath.startsWith(href);
 }
 
 export default function Sidenav(props) {
