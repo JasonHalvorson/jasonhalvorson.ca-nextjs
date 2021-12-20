@@ -47,34 +47,38 @@ export default function Home() {
             </Head>
 
             {/* TODO: Deal with sizing on larger monitors */}
-            <div className="relative dark:bg-gray-800 bg-white py-20 transition-colors duration-300">
-                <div className="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
-                    <p className="mb-2 text-3xl font-extrabold dark:text-white text-gray-900 tracking-tight sm:text-5xl transition-colors duration-300">Jason Halvorson</p>
-                    <h2 className="text-base font-semibold tracking-wider text-jhpurple uppercase">Full-Stack Web Developer / Software Engineer</h2>
-                    <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">I'm a full-stack web developer with a focus on functionality and UI/UX design. Want to know how I may help your project? Check out my project portfolio and online resume.</p>
-                    <div className="mt-12">
-                        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                            {technologies.map(({ name, icons, description }) => (
-                                <div key={name} className="pt-6">
-                                    <div className="flow-root dark:bg-gray-900 bg-gray-50 rounded-lg px-6 pb-8 shadow-lg hover:shadow-jhblue transition duration-300">
-                                        <div className="-mt-6">
-                                            <div>
-                                                {/* FIXME: Fix Icon spacing on smaller screen sizes */}
-                                                {icons.map((IconName) => (
-                                                    <span key={IconName} className="inline-flex items-center justify-center p-3 mx-2 bg-jhblue rounded-md shadow-lg">
-                                                        <div className="h-7 w-7 text-white" aria-hidden="true">
-                                                            <IconName />
-                                                        </div>
-                                                    </span>
-                                                ))}
+            <div className="py-6">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+                    <div className="relative dark:bg-gray-800 bg-white py-20 transition-colors duration-300">
+                        <div className="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
+                            <p className="mb-2 text-3xl font-extrabold dark:text-white text-gray-900 tracking-tight sm:text-5xl transition-colors duration-300">Jason Halvorson</p>
+                            <h2 className="text-base font-semibold tracking-wider text-jhpurple uppercase">Full-Stack Web Developer / Software Engineer</h2>
+                            <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">I'm a full-stack web developer with a focus on functionality and UI/UX design. Want to know how I may help your project? Check out my project portfolio and online resume.</p>
+                            <div className="mt-12">
+                                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                                    {technologies.map(({ name, icons, description }) => (
+                                        <div key={name} className="pt-6">
+                                            <div className="flow-root dark:bg-gray-900 bg-gray-50 rounded-lg px-6 pb-8 shadow-lg hover:shadow-jhblue transition duration-300">
+                                                <div className="-mt-6">
+                                                    <div>
+                                                        {/* FIXME: Fix Icon spacing on smaller screen sizes */}
+                                                        {icons.map((IconName) => (
+                                                            <span key={IconName} className="inline-flex items-center justify-center p-3 mx-2 bg-jhblue rounded-md shadow-lg">
+                                                                <div className="h-7 w-7 text-white" aria-hidden="true">
+                                                                    <IconName />
+                                                                </div>
+                                                            </span>
+                                                        ))}
+                                                    </div>
+                                                    <h3 className="mt-8 text-lg font-medium dark:text-white text-gray-900 tracking-tight transition-colors duration-300">{name}</h3>
+                                                    {/* REVIEW: Make sure the font color looks good on each mode */}
+                                                    <p className="mt-5 text-base dark:text-gray-400 text-gray-500 transition-colors duration-300">{description}</p>
+                                                </div>
                                             </div>
-                                            <h3 className="mt-8 text-lg font-medium dark:text-white text-gray-900 tracking-tight transition-colors duration-300">{name}</h3>
-                                            {/* REVIEW: Make sure the font color looks good on each mode */}
-                                            <p className="mt-5 text-base dark:text-gray-400 text-gray-500 transition-colors duration-300">{description}</p>
                                         </div>
-                                    </div>
+                                    ))}
                                 </div>
-                            ))}
+                            </div>
                         </div>
                     </div>
                 </div>
