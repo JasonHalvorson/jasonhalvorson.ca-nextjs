@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import { getAllPieceSlugs, getPieceData } from '../../lib/portfolio';
 
-export default function PortfolioItem({ pieceData }) {
+export default function PortfolioPiece({ pieceData }) {
     return (
         <div className="dark:bg-gray-900 bg-gray-100 transition-colors duration-300">
             <Head>
@@ -10,6 +10,7 @@ export default function PortfolioItem({ pieceData }) {
             </Head>
 
             <Breadcrumbs />
+
             <p>{pieceData.title}</p>
             <p>{pieceData.description}</p>
             {pieceData.tags.map((tag) => (
