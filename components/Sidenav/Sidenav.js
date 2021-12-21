@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { CalendarIcon, ChartBarIcon, FolderIcon, HomeIcon, InboxIcon, MenuIcon, UsersIcon, XIcon } from '@heroicons/react/outline';
+import { CalendarIcon, ChartBarIcon, FolderIcon, HomeIcon, InboxIcon, MenuIcon, UsersIcon, XIcon, QuestionMarkCircleIcon } from '@heroicons/react/outline';
 import DarkModeToggle from './DarkModeToggle';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -18,6 +18,11 @@ function isCurrent(href) {
         return router.asPath === '/';
     }
     return router.asPath.startsWith(href);
+}
+
+function is404() {
+    const router = useRouter();
+    return router.route === '/404';
 }
 
 export default function Sidenav(props) {
@@ -55,6 +60,14 @@ export default function Sidenav(props) {
                                             </a>
                                         </Link>
                                     ))}
+                                    {is404() && (
+                                        <Link href="/404">
+                                            <a className={'dark:bg-gray-900 bg-gray-100 dark:text-white text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors duration-300'}>
+                                                <QuestionMarkCircleIcon className={'dark:text-gray-300 text-gray-500 mr-3 flex-shrink-0 h-6 w-6 transition-colors duration-300'} aria-hidden="true" />
+                                                404
+                                            </a>
+                                        </Link>
+                                    )}
                                 </nav>
                             </div>
                             <div className="flex-shrink-0 flex dark:bg-gray-700 bg-white border-t dark:border-gray-700 border-gray-200 p-4 transition-colors duration-300">
@@ -85,6 +98,14 @@ export default function Sidenav(props) {
                                     </a>
                                 </Link>
                             ))}
+                            {is404() && (
+                                <Link href="/404">
+                                    <a className={'dark:bg-gray-900 bg-gray-100 dark:text-white text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors duration-300'}>
+                                        <QuestionMarkCircleIcon className={'dark:text-gray-300 text-gray-500 mr-3 flex-shrink-0 h-6 w-6 transition-colors duration-300'} aria-hidden="true" />
+                                        404
+                                    </a>
+                                </Link>
+                            )}
                         </nav>
                     </div>
                     <div className="flex-shrink-0 flex dark:bg-gray-700 bg-white border-t dark:border-gray-700 border-gray-200 p-4 transition-colors duration-300">

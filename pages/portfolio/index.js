@@ -32,6 +32,7 @@ export default function Portfolio({ allPiecesData }) {
                     {allPiecesData.map((piece) => (
                         <div key={piece.slug} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
                             <div className="flex-shrink-0">
+                                {/* TODO: Add loading blur */}
                                 <Image className="h-48 w-full object-cover" src={`/img/portfolio/${piece.image}`} alt={`${piece.title} preview image`} width={800} height={400} layout="responsive" priority />
                             </div>
                             <div className="flex-1 dark:bg-gray-800 bg-white p-6 flex flex-col justify-between transition-colors duration-300">

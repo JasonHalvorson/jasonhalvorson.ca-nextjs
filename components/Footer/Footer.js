@@ -16,6 +16,7 @@ const navigation = [
 // Get current year for copyright
 const currentYear = new Date().getFullYear();
 
+// TODO: Fix footer covering up lower elements
 export default function Footer() {
     return (
         <footer className="dark:bg-gray-800 bg-white border-t dark:border-gray-800 border-gray-200 transition-colors duration-300 fixed bottom-0 w-full z-auto">
