@@ -1,12 +1,31 @@
 import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { CalendarIcon, ChartBarIcon, FolderIcon, HomeIcon, InboxIcon, MenuIcon, UsersIcon, XIcon, QuestionMarkCircleIcon } from '@heroicons/react/outline';
+import { CalendarIcon, ChartBarIcon, FolderIcon, HomeIcon, InboxIcon, MenuIcon, DocumentTextIcon, XIcon, QuestionMarkCircleIcon } from '@heroicons/react/outline';
+import { GithubIcon, LinkedinIcon } from '../../utils/icons';
 import DarkModeToggle from './DarkModeToggle';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Footer from '../Footer/Footer';
 
-const navigation = [ { name: 'Home', href: '/', icon: HomeIcon, current: true }, { name: 'Portfolio', href: '/portfolio', icon: FolderIcon, current: false }, { name: 'Calendar', href: '#', icon: CalendarIcon, current: false }, { name: 'Documents', href: '#', icon: InboxIcon, current: false }, { name: 'Reports', href: '#', icon: ChartBarIcon, current: false } ];
+const navigation = [
+    { name: 'Home', href: '/', icon: HomeIcon },
+    { name: 'Resume', href: '/resume', icon: DocumentTextIcon },
+    { name: 'Portfolio', href: '/portfolio', icon: FolderIcon },
+    { name: 'Documents', href: '#', icon: InboxIcon },
+    { name: 'Reports', href: '#', icon: ChartBarIcon },
+];
+
+const socials = [
+    {
+        name: 'GitHub',
+        href: 'https://github.com/JasonHalvorson/jasonhalvorson.ca-nextjs',
+        icon: (props) => <GithubIcon {...props} />,
+    },
+    {
+        name: 'LinkedIn',
+        href: 'https://www.linkedin.com/in/jason-halvorson/',
+        icon: (props) => <LinkedinIcon {...props} />,
+    },
+];
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ');
@@ -25,8 +44,10 @@ function is404() {
     return router.route === '/404';
 }
 
+const currentYear = new Date().getFullYear();
+
 export default function Sidenav(props) {
-    const [ sidenavOpen, setSidenavOpen ] = useState(false);
+    const [sidenavOpen, setSidenavOpen] = useState(false);
 
     return (
         <div>
@@ -70,6 +91,17 @@ export default function Sidenav(props) {
                                     )}
                                 </nav>
                             </div>
+                            <div className="flex-shrink-0 flex p-4 text-white flex-col space-y-3">
+                                <div className="flex justify-center space-x-6">
+                                    {socials.map((item) => (
+                                        <a key={item.name} href={item.href} className="dark:text-gray-400 text-gray-500 hover:dark:text-jhpurple hover:text-jhpurple transition-colors duration-300 h-6 w-6">
+                                            <span className="sr-only">{item.name}</span>
+                                            <item.icon className="" aria-hidden="true" />
+                                        </a>
+                                    ))}
+                                </div>
+                                <div className="flex items-center mx-auto">&copy; Jason Halvorson {currentYear}</div>
+                            </div>
                             <div className="flex-shrink-0 flex dark:bg-gray-700 bg-white border-t dark:border-gray-700 border-gray-200 p-4 transition-colors duration-300">
                                 <div className="flex items-center mx-auto">
                                     <DarkModeToggle />
@@ -108,6 +140,17 @@ export default function Sidenav(props) {
                             )}
                         </nav>
                     </div>
+                    <div className="flex-shrink-0 flex p-4 text-white flex-col space-y-3">
+                        <div className="flex justify-center space-x-6">
+                            {socials.map((item) => (
+                                <a key={item.name} href={item.href} className="dark:text-gray-400 text-gray-500 hover:dark:text-jhpurple hover:text-jhpurple transition-colors duration-300 h-6 w-6">
+                                    <span className="sr-only">{item.name}</span>
+                                    <item.icon className="" aria-hidden="true" />
+                                </a>
+                            ))}
+                        </div>
+                        <div className="flex items-center mx-auto">&copy; Jason Halvorson {currentYear}</div>
+                    </div>
                     <div className="flex-shrink-0 flex dark:bg-gray-700 bg-white border-t dark:border-gray-700 border-gray-200 p-4 transition-colors duration-300">
                         <div className="flex items-center mx-auto">
                             <DarkModeToggle />
@@ -122,8 +165,7 @@ export default function Sidenav(props) {
                         <MenuIcon className="h-6 w-6" aria-hidden="true" />
                     </button>
                 </div>
-                <main className="">{props.children}</main>
-                <Footer />
+                <main className="pb-5 dark:bg-gray-900 bg-gray-100 transition-colors duration-300">{props.children}</main>
             </div>
         </div>
     );

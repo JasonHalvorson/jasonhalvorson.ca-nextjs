@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Custom404() {
     return (
-        <div className="dark:bg-gray-900 bg-gray-100 transition-colors duration-300">
+        <div>
             <Head>
                 <title>Jason Halvorson: Home</title>
             </Head>

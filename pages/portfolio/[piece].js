@@ -4,7 +4,7 @@ import { getAllPieceSlugs, getPieceData } from '../../lib/portfolio';
 
 export default function PortfolioPiece({ pieceData }) {
     return (
-        <div className="dark:bg-gray-900 bg-gray-100 transition-colors duration-300">
+        <div>
             <Head>
                 <title>Jason Halvorson | Portfolio</title>
             </Head>
@@ -27,7 +27,7 @@ export async function getStaticPaths() {
 
     return {
         paths,
-        fallback : false
+        fallback: false,
     };
 }
 
@@ -35,6 +35,6 @@ export async function getStaticProps({ params }) {
     const pieceData = getPieceData(params.piece);
 
     return {
-        props : { pieceData }
+        props: { pieceData },
     };
 }

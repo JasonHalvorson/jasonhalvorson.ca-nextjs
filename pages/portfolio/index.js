@@ -8,15 +8,15 @@ export async function getStaticProps() {
     const allPiecesData = getSortedPiecesData();
 
     return {
-        props : {
-            allPiecesData
-        }
+        props: {
+            allPiecesData,
+        },
     };
 }
 
 export default function Portfolio({ allPiecesData }) {
     return (
-        <div className="dark:bg-gray-900 bg-gray-100 transition-colors duration-300">
+        <div>
             <Head>
                 <title>Jason Halvorson | Portfolio</title>
             </Head>
