@@ -140,7 +140,7 @@ export default function Sidenav(props) {
                             )}
                         </nav>
                     </div>
-                    <div className="flex-shrink-0 flex p-4 text-white flex-col space-y-3">
+                    <div className="flex-shrink-0 flex p-4 dark:text-white text-gray-900 flex-col space-y-3 transition-colors duration-300">
                         <div className="flex justify-center space-x-6">
                             {socials.map((item) => (
                                 <a key={item.name} href={item.href} className="dark:text-gray-400 text-gray-500 hover:dark:text-jhpurple hover:text-jhpurple transition-colors duration-300 h-6 w-6">
