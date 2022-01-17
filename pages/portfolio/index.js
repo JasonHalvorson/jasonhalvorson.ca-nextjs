@@ -33,7 +33,7 @@ export default function Portfolio({ allPiecesData }) {
                         <div key={piece.slug} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
                             <div className="flex-shrink-0">
                                 {/* TODO: Add loading blur */}
-                                <Image className="h-48 w-full object-cover" src={`/img/portfolio/${piece.image}`} alt={`${piece.title} preview image`} width={800} height={400} layout="responsive" priority />
+                                <Image className="h-48 w-full object-cover" src={`/img/portfolio/${piece.image}`} alt={`${piece.title} preview image`} width={400} height={200} layout="responsive" priority />
                             </div>
                             <div className="flex-1 dark:bg-gray-800 bg-white p-6 flex flex-col justify-between transition-colors duration-300">
                                 <div className="flex-1 pieces-center">
@@ -42,7 +42,6 @@ export default function Portfolio({ allPiecesData }) {
                                             {tag}
                                         </span>
                                     ))}
-                                    {/* TODO: make portfolio  */}
                                     <Link href={`/portfolio/${piece.slug}`}>
                                         <a className="block mt-2">
                                             <p className="text-xl font-semibold dark:text-white text-gray-900 transition-colors duration-300">{piece.title}</p>
