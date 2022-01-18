@@ -61,17 +61,15 @@ export default function Home() {
                                             <div className="flow-root dark:bg-gray-900 bg-gray-50 rounded-lg px-6 pb-8 shadow-lg hover:shadow-jhblue transition duration-300">
                                                 <div className="-mt-6">
                                                     <div>
-                                                        {/* FIXME: Fix Icon spacing on smaller screen sizes */}
                                                         {icons.map((IconName) => (
-                                                            <span key={IconName} className="inline-flex items-center justify-center p-3 mx-2 bg-jhblue rounded-md shadow-lg">
+                                                            <span key={IconName} className="inline-flex items-center justify-center p-3 mx-2 bg-jhblue rounded-md shadow-lg mb-5">
                                                                 <div className="h-7 w-7 text-white" aria-hidden="true">
                                                                     <IconName />
                                                                 </div>
                                                             </span>
                                                         ))}
                                                     </div>
-                                                    <h3 className="mt-8 text-lg font-medium dark:text-white text-gray-900 tracking-tight transition-colors duration-300">{name}</h3>
-                                                    {/* REVIEW: Make sure the font color looks good on each mode */}
+                                                    <h3 className="mt-4 text-lg font-medium dark:text-white text-gray-900 tracking-tight transition-colors duration-300">{name}</h3>
                                                     <p className="mt-5 text-base dark:text-gray-400 text-gray-500 transition-colors duration-300">{description}</p>
                                                 </div>
                                             </div>
