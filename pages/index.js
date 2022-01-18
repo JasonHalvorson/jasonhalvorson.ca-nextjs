@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Link from 'next/link';
+
 import { JavascriptIcon, ReactIcon, NextjsIcon, NodejsIcon, PythonIcon, CssIcon, SassIcon, HtmlIcon, PhpIcon, UbuntuIcon, CentosIcon, GithubIcon } from '../utils/icons';
 
 const technologies = [

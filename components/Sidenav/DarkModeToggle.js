@@ -1,31 +1,28 @@
-import { useState, useEffect } from 'react';
 import { Switch } from '@headlessui/react';
+import { useState, useEffect } from 'react';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ');
 }
 
 export default function DarkModeToggle() {
-    const [ darkMode, setDarkMode ] = useState(undefined);
+    const [darkMode, setDarkMode] = useState(undefined);
 
     useEffect(() => {
         setDarkMode(document.documentElement.classList.contains('dark'));
     }, []);
 
-    useEffect(
-        () => {
-            if (darkMode) {
-                window.document.documentElement.classList.add('dark');
+    useEffect(() => {
+        if (darkMode) {
+            window.document.documentElement.classList.add('dark');
 
-                localStorage.theme = 'dark';
-            } else {
-                window.document.documentElement.classList.remove('dark');
+            localStorage.theme = 'dark';
+        } else {
+            window.document.documentElement.classList.remove('dark');
 
-                localStorage.theme = 'light';
-            }
-        },
-        [ darkMode ]
-    );
+            localStorage.theme = 'light';
+        }
+    }, [darkMode]);
 
     return (
         <Switch checked={darkMode} onChange={setDarkMode} className={classNames(darkMode ? 'bg-gray-900' : 'bg-gray-400', 'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-jhpurple')}>

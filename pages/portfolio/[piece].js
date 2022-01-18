@@ -1,6 +1,7 @@
 import Head from 'next/head';
-import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+
 import { getAllPieceSlugs, getPieceData } from '../../lib/portfolio';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 
 export default function PortfolioPiece({ pieceData }) {
     return (

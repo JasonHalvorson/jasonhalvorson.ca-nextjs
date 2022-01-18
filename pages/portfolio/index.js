@@ -1,8 +1,9 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import Image from 'next/image';
-import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import Link from 'next/link';
+
 import { getSortedPiecesData } from '../../lib/portfolio';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 
 export async function getStaticProps() {
     const allPiecesData = getSortedPiecesData();

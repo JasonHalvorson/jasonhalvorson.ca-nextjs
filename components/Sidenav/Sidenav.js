@@ -1,12 +1,13 @@
-import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { FolderIcon, HomeIcon, MenuIcon, DocumentTextIcon, XIcon, QuestionMarkCircleIcon } from '@heroicons/react/outline';
-import { GithubIcon, LinkedinIcon } from '../../utils/icons';
-import DarkModeToggle from './DarkModeToggle';
-import ContactButton from './ContactButton';
-import Link from 'next/link';
+import { Fragment, useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import Link from 'next/link';
+
+import { GithubIcon, LinkedinIcon } from '../../utils/icons';
+import ContactButton from './ContactButton';
+import DarkModeToggle from './DarkModeToggle';
 
 const navigation = [
     { name: 'Home', href: '/', icon: HomeIcon },
