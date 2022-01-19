@@ -92,7 +92,11 @@ export const projects = [
 
 export const education = [
     {
-        name: '2021 Complete Python Bootcamp',
+        name: 'The Modern React Bootcamp',
+        description: 'Udemy.com',
+    },
+    {
+        name: '2022 Complete Python Bootcamp',
         description: 'Udemy.com',
     },
     {
