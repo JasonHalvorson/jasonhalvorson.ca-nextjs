@@ -76,7 +76,7 @@ export default function Sidenav(props) {
                                 <nav className="mt-5 px-2 space-y-1">
                                     {navigation.map((item) => (
                                         <Link href={item.href} key={item.name}>
-                                            <a className={classNames(isCurrent(item.href) ? 'dark:bg-gray-900 bg-gray-100 dark:text-white text-gray-900' : 'dark:text-gray-300 text-gray-600 dark:hover:bg-gray-700 hover:bg-gray-50 dark:hover:text-white hover:text-gray-900', 'group flex items-center px-2 py-2 text-base font-medium rounded-md transition-colors duration-300')}>
+                                            <a onClick={() => setSidenavOpen(false)} className={classNames(isCurrent(item.href) ? 'dark:bg-gray-900 bg-gray-100 dark:text-white text-gray-900' : 'dark:text-gray-300 text-gray-600 dark:hover:bg-gray-700 hover:bg-gray-50 dark:hover:text-white hover:text-gray-900', 'group flex items-center px-2 py-2 text-base font-medium rounded-md transition-colors duration-300')}>
                                                 <item.icon className={classNames(isCurrent(item.href) ? 'dark:text-gray-300 text-gray-500' : 'text-gray-400 dark:group-hover:text-gray-300 group-hover:text-gray-500', 'mr-4 flex-shrink-0 h-6 w-6 transition-colors duration-300')} aria-hidden="true" />
                                                 {item.name}
                                             </a>
