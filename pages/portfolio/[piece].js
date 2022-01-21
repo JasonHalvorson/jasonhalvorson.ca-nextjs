@@ -7,7 +7,7 @@ export default function PortfolioPiece({ pieceData }) {
     return (
         <div>
             <Head>
-                <title>Jason Halvorson | Portfolio</title>
+                <title>Jason Halvorson | Portfolio: {pieceData.title}</title>
             </Head>
 
             <Breadcrumbs />

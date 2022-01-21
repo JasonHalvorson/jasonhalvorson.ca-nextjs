@@ -2,6 +2,7 @@
     "title": "JasonHalvorson.ca",
     "description": "The website you are currently on!",
     "image": "jasonhalvorson-ca.png",
+    "link": "https://github.com/JasonHalvorson/jasonhalvorson.ca-nextjs",
     "tags": ["Next.js", "React", "JavaScript", "Tailwind CSS"],
     "position": 1
 }

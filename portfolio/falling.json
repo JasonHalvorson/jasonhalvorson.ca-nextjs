@@ -2,6 +2,7 @@
     "title": "Falling",
     "description": "A self-portrait I did for Professional Development class that showcases my personality aspects.",
     "image": "falling.jpg",
+    "link": "https://falling.jasonhalvorson.ca",
     "tags": ["HTML", "CSS", "JavaScript"],
     "position": 4
 }

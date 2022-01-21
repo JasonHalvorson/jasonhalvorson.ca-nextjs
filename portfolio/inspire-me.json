@@ -2,6 +2,7 @@
     "title": "Inspire.me",
     "description": "A multi-user-auth website focusing on design inspiration, where you can view others' designs or post your own.",
     "image": "inspire-me.png",
+    "link": "https://ssp.jasonhalvorson.ca",
     "tags": ["PHP"],
     "position": 5
 }

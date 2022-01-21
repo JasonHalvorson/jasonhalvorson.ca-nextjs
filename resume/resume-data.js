@@ -65,7 +65,7 @@ export const workExperience = [
 ];
 
 export const skills = {
-    Technical: ['HTML/PHP', 'CSS/SASS', 'JavaScript/jQuery', 'Node.JS', 'MySQL', 'Bootstrap', 'WordPress', 'Adobe XD', 'Adobe Illustrator', 'Adobe Photoshop'],
+    Technical: ['Next.js/React', 'HTML/PHP', 'JavaScript/jQuery', 'CSS/SASS', 'Node.JS', 'MySQL', 'Bootstrap', 'WordPress', 'Adobe XD', 'Adobe Illustrator', 'Adobe Photoshop'],
     Professional: ['Effective communication', 'Team player', 'Strong problem solver', 'Quick Learner'],
 };
 

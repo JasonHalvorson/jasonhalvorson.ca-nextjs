@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
+// import Link from 'next/link';
 
 import { getSortedPiecesData } from '../../lib/portfolio';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
@@ -43,12 +43,12 @@ export default function Portfolio({ allPiecesData }) {
                                             {tag}
                                         </span>
                                     ))}
-                                    <Link href={`/portfolio/${piece.slug}`}>
-                                        <a className="block mt-2">
-                                            <p className="text-xl font-semibold dark:text-white text-gray-900 transition-colors duration-300">{piece.title}</p>
-                                            <p className="mt-3 text-base dark:text-gray-400 text-gray-500 transition-colors duration-300">{piece.description}</p>
-                                        </a>
-                                    </Link>
+                                    {/* <Link href={`/portfolio/${piece.slug}`}> Remove <a> href to use */}
+                                    <a className="block mt-2" href={piece.link} target="_blank">
+                                        <p className="text-xl font-semibold dark:text-white text-gray-900 transition-colors duration-300">{piece.title}</p>
+                                        <p className="mt-3 text-base dark:text-gray-400 text-gray-500 transition-colors duration-300">{piece.description}</p>
+                                    </a>
+                                    {/* </Link> */}
                                 </div>
                             </div>
                         </div>

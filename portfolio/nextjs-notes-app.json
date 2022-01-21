@@ -2,6 +2,7 @@
     "title": "Next.js Notes App",
     "description": "An app for writing shareable notes. It features an expiration system, and allows users to use markdown syntax in their notes.",
     "image": "nextjs-notes-app.png",
+    "link": "https://notes.jasonhalvorson.ca",
     "tags": ["Next.js", "React", "Tailwind CSS", "PostgreSQL"],
     "position": 2
 }
