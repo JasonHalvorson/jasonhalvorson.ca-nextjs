@@ -1,12 +1,32 @@
-import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { CalendarIcon, ChartBarIcon, FolderIcon, HomeIcon, InboxIcon, MenuIcon, UsersIcon, XIcon } from '@heroicons/react/outline';
-import DarkModeToggle from './DarkModeToggle';
-import Link from 'next/link';
+import { FolderIcon, HomeIcon, MenuIcon, DocumentTextIcon, XIcon, QuestionMarkCircleIcon } from '@heroicons/react/outline';
+import { Fragment, useState } from 'react';
 import { useRouter } from 'next/router';
-import Footer from '../Footer/Footer';
+import Image from 'next/image';
+import Link from 'next/link';
 
-const navigation = [ { name: 'Home', href: '/', icon: HomeIcon, current: true }, { name: 'Portfolio', href: '/portfolio', icon: FolderIcon, current: false }, { name: 'Calendar', href: '#', icon: CalendarIcon, current: false }, { name: 'Documents', href: '#', icon: InboxIcon, current: false }, { name: 'Reports', href: '#', icon: ChartBarIcon, current: false } ];
+import { GithubIcon, LinkedinIcon } from '../../utils/icons';
+import ContactButton from './ContactButton';
+import DarkModeToggle from './DarkModeToggle';
+
+const navigation = [
+    { name: 'Home', href: '/', icon: HomeIcon },
+    { name: 'Resume', href: '/resume', icon: DocumentTextIcon },
+    { name: 'Portfolio', href: '/portfolio', icon: FolderIcon },
+];
+
+const socials = [
+    {
+        name: 'GitHub',
+        href: 'https://github.com/JasonHalvorson/jasonhalvorson.ca-nextjs',
+        icon: (props) => <GithubIcon {...props} />,
+    },
+    {
+        name: 'LinkedIn',
+        href: 'https://www.linkedin.com/in/jason-halvorson/',
+        icon: (props) => <LinkedinIcon {...props} />,
+    },
+];
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ');
@@ -14,11 +34,21 @@ function classNames(...classes) {
 
 function isCurrent(href) {
     const router = useRouter();
-    return router.pathname === href;
+    if (href === '/') {
+        return router.asPath === '/';
+    }
+    return router.asPath.startsWith(href);
 }
 
+function is404() {
+    const router = useRouter();
+    return router.route === '/404';
+}
+
+const currentYear = new Date().getFullYear();
+
 export default function Sidenav(props) {
-    const [ sidenavOpen, setSidenavOpen ] = useState(false);
+    const [sidenavOpen, setSidenavOpen] = useState(false);
 
     return (
         <div>
@@ -40,19 +70,39 @@ export default function Sidenav(props) {
                             </Transition.Child>
                             <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
                                 <div className="flex-shrink-0 flex items-center px-4">
-                                    <img className="h-8 w-auto" src="/logo.png" alt="JH Logo" />
+                                    <Image height={40} width={45} src="/logo.png" alt="JH Logo" />
                                     <div className="flex-1 ml-4 text-bold dark:text-white text-gray-900 text-xl transition-colors duration-300">Jason Halvorson</div>
                                 </div>
                                 <nav className="mt-5 px-2 space-y-1">
                                     {navigation.map((item) => (
                                         <Link href={item.href} key={item.name}>
-                                            <a className={classNames(isCurrent(item.href) ? 'dark:bg-gray-900 bg-gray-100 dark:text-white text-gray-900' : 'dark:text-gray-300 text-gray-600 dark:hover:bg-gray-700 hover:bg-gray-50 dark:hover:text-white hover:text-gray-900', 'group flex items-center px-2 py-2 text-base font-medium rounded-md transition-colors duration-300')}>
+                                            <a onClick={() => setSidenavOpen(false)} className={classNames(isCurrent(item.href) ? 'dark:bg-gray-900 bg-gray-100 dark:text-white text-gray-900' : 'dark:text-gray-300 text-gray-600 dark:hover:bg-gray-700 hover:bg-gray-50 dark:hover:text-white hover:text-gray-900', 'group flex items-center px-2 py-2 text-base font-medium rounded-md transition-colors duration-300')}>
                                                 <item.icon className={classNames(isCurrent(item.href) ? 'dark:text-gray-300 text-gray-500' : 'text-gray-400 dark:group-hover:text-gray-300 group-hover:text-gray-500', 'mr-4 flex-shrink-0 h-6 w-6 transition-colors duration-300')} aria-hidden="true" />
                                                 {item.name}
                                             </a>
                                         </Link>
                                     ))}
+                                    {is404() && (
+                                        <Link href="/404">
+                                            <a className={'dark:bg-gray-900 bg-gray-100 dark:text-white text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors duration-300'}>
+                                                <QuestionMarkCircleIcon className={'dark:text-gray-300 text-gray-500 mr-3 flex-shrink-0 h-6 w-6 transition-colors duration-300'} aria-hidden="true" />
+                                                404
+                                            </a>
+                                        </Link>
+                                    )}
+                                    <ContactButton />
                                 </nav>
+                            </div>
+                            <div className="flex-shrink-0 flex p-4 dark:text-white text-gray-900 flex-col space-y-3 transition-colors duration-300">
+                                <div className="flex justify-center space-x-6">
+                                    {socials.map((item) => (
+                                        <a key={item.name} href={item.href} className="dark:text-gray-400 text-gray-500 hover:dark:text-jhpurple hover:text-jhpurple transition-colors duration-300 h-6 w-6">
+                                            <span className="sr-only">{item.name}</span>
+                                            <item.icon className="" aria-hidden="true" />
+                                        </a>
+                                    ))}
+                                </div>
+                                <div className="flex items-center mx-auto">&copy; Jason Halvorson {currentYear}</div>
                             </div>
                             <div className="flex-shrink-0 flex dark:bg-gray-700 bg-white border-t dark:border-gray-700 border-gray-200 p-4 transition-colors duration-300">
                                 <div className="flex items-center mx-auto">
@@ -70,7 +120,7 @@ export default function Sidenav(props) {
                 <div className="flex-1 flex flex-col min-h-0 dark:bg-gray-800 bg-white border-r dark:border-gray-900 border-gray-200 transition-colors duration-300">
                     <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
                         <div className="flex items-center flex-shrink-0 px-4">
-                            <img className="h-8 w-auto" src="/logo.png" alt="JH Logo" />
+                            <Image height={40} width={45} src="/logo.png" alt="JH Logo" />
                             <div className="flex-1 ml-4 text-bold dark:text-white text-gray-900 text-xl transition-colors duration-300">Jason Halvorson</div>
                         </div>
                         <nav className="mt-5 flex-1 px-2 space-y-1">
@@ -82,7 +132,27 @@ export default function Sidenav(props) {
                                     </a>
                                 </Link>
                             ))}
+                            {is404() && (
+                                <Link href="/404">
+                                    <a className={'dark:bg-gray-900 bg-gray-100 dark:text-white text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors duration-300'}>
+                                        <QuestionMarkCircleIcon className={'dark:text-gray-300 text-gray-500 mr-3 flex-shrink-0 h-6 w-6 transition-colors duration-300'} aria-hidden="true" />
+                                        404
+                                    </a>
+                                </Link>
+                            )}
+                            <ContactButton />
                         </nav>
+                    </div>
+                    <div className="flex-shrink-0 flex p-4 dark:text-white text-gray-900 flex-col space-y-3 transition-colors duration-300">
+                        <div className="flex justify-center space-x-6">
+                            {socials.map((item) => (
+                                <a key={item.name} href={item.href} className="dark:text-gray-400 text-gray-500 hover:dark:text-jhpurple hover:text-jhpurple transition-colors duration-300 h-6 w-6">
+                                    <span className="sr-only">{item.name}</span>
+                                    <item.icon className="" aria-hidden="true" />
+                                </a>
+                            ))}
+                        </div>
+                        <div className="flex items-center mx-auto">&copy; Jason Halvorson {currentYear}</div>
                     </div>
                     <div className="flex-shrink-0 flex dark:bg-gray-700 bg-white border-t dark:border-gray-700 border-gray-200 p-4 transition-colors duration-300">
                         <div className="flex items-center mx-auto">
@@ -92,18 +162,13 @@ export default function Sidenav(props) {
                 </div>
             </div>
             <div className="md:pl-64 flex flex-col flex-1">
-                <div className="sticky top-0 z-10 md:hidden pl-1 pt-1 sm:pl-3 sm:pt-3 bg-gray-100">
+                <div className="sticky top-0 z-10 md:hidden pl-1 pt-1 sm:pl-3 sm:pt-3 dark:bg-gray-800 bg-gray-100 transition-colors duration-300">
                     <button type="button" className="-ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" onClick={() => setSidenavOpen(true)}>
                         <span className="sr-only">Open sidenav</span>
                         <MenuIcon className="h-6 w-6" aria-hidden="true" />
                     </button>
                 </div>
-                <main className="flex-1">
-                    <div className="py-6">
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">{props.children}</div>
-                    </div>
-                </main>
-                <Footer />
+                <main className="pb-5 dark:bg-gray-900 bg-gray-100 transition-colors duration-300">{props.children}</main>
             </div>
         </div>
     );

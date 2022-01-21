@@ -1,6 +1,6 @@
 import { HomeIcon } from '@heroicons/react/solid';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 function getSlug() {
     const router = useRouter();
@@ -19,7 +19,7 @@ function getSlug() {
         const fullSlug = `/${filteredArray.slice(0, index + 1).join('/')}`;
         return {
             fullSlug,
-            slug     : item
+            slug: item,
         };
     });
 

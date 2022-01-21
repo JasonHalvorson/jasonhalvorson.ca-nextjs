@@ -1,10 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import DarkModeToggle from '../components/Sidenav/DarkModeToggle';
 
 export default function Custom404() {
     return (
-        <div className="dark:bg-gray-900 bg-gray-100 transition-colors duration-300">
+        <div>
             <Head>
                 <title>Jason Halvorson: Home</title>
             </Head>
@@ -22,7 +21,7 @@ export default function Custom404() {
                         <div className="text-center">
                             <p className="text-sm font-semibold text-jhpurple uppercase tracking-wide">404 error</p>
                             <h1 className="mt-2 text-4xl font-extrabold dark:text-white text-gray-900 tracking-tight sm:text-5xl transition-colors duration-300">Page not found.</h1>
-                            <p className="mt-2 text-base dark:text-gray-400 text-gray-500 transition-colors duration-300">Sorry, we couldn’t find the page you’re looking for.</p>
+                            <p className="mt-2 text-base dark:text-gray-400 text-gray-500 transition-colors duration-300">Sorry, we couldn't find the page you're looking for.</p>
                             <div className="mt-6">
                                 <Link href="/">
                                     <a href="#" className="text-base font-medium text-jhblue hover:text-jhpurple">
@@ -33,9 +32,6 @@ export default function Custom404() {
                         </div>
                     </div>
                 </main>
-                <footer className="mx-auto">
-                    <DarkModeToggle />
-                </footer>
             </div>
         </div>
     );
