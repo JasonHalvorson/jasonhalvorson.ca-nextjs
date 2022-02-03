@@ -1,0 +1,8 @@
+{
+    "title": "LoL Ability Guessing Game",
+    "description": "A game where you're given the image and hotkey of a League of Legends champion's ability, and have to guess the name of that ability.",
+    "image": "lol-ability-guessing-game.png",
+    "link": "https://lol-ability-guessing-game.vercel.app/",
+    "tags": ["Next.js", "React", "JavaScript", "TailwindCSS"],
+    "position": 2
+}

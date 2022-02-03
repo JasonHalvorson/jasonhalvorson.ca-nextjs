@@ -3,6 +3,6 @@
     "description": "The website you are currently on!",
     "image": "jasonhalvorson-ca.png",
     "link": "https://github.com/JasonHalvorson/jasonhalvorson.ca-nextjs",
-    "tags": ["Next.js", "React", "JavaScript", "Tailwind CSS"],
+    "tags": ["Next.js", "React", "JavaScript", "TailwindCSS"],
     "position": 1
 }

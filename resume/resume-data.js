@@ -71,6 +71,12 @@ export const skills = {
 
 export const projects = [
     {
+        name: 'LoL Ability Guessing Game',
+        description: "A game where you're given the image and hotkey of a League of Legends champion's ability, and have to guess the name of that ability. Pulls and caches data from the Riot API so it is always up to date.",
+        link: 'lol-ability-guessing-game.vercel.app',
+        tags: ['Next.js', 'React', 'JavaScript', 'TailwindCSS'],
+    },
+    {
         name: 'Next.js Notes App',
         description: 'An app for writing shareable notes. It features an expiration system, and allows users to use markdown syntax in their notes. Notes are stored in a PostgreSQL database.',
         link: 'notes.jasonhalvorson.ca',

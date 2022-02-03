@@ -70,7 +70,7 @@ export default function Resume() {
                         <h2 className="text-2xl font-bold dark:text-white text-gray-900 tracking-wide border-l-jhpurple border-l-4 pl-3 transition-colors duration-300">Projects</h2>
                         <ul role="list">
                             {projects.map((project) => (
-                                <li key={project.name} className="py-5">
+                                <li key={project.name} className="py-3">
                                     <div className="flex space-x-3">
                                         <div className="flex-1 space-y-1">
                                             <div className="flex items-center justify-between">
