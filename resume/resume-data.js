@@ -31,7 +31,7 @@ export const workExperience = [
         id: 5,
         title: 'Web Developer',
         company: 'Orthoquest Pedorthics',
-        period: '2021',
+        period: '2021 - 2022',
         description: "Development of a front-end landing page for Orthoquest's Kelowna Kinesiology.",
     },
     {
