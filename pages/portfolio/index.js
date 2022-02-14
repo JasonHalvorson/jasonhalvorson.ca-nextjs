@@ -3,7 +3,7 @@ import Image from 'next/image';
 // import Link from 'next/link';
 
 import { getSortedPiecesData } from '../../lib/portfolio';
-import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+// import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 
 export async function getStaticProps() {
     const allPiecesData = getSortedPiecesData();
@@ -22,7 +22,8 @@ export default function Portfolio({ allPiecesData }) {
                 <title>Jason Halvorson | Portfolio</title>
             </Head>
 
-            <Breadcrumbs />
+            {/* UNCOMMENT WHEN CHANGING TO PAGES */}
+            {/* <Breadcrumbs /> */}
             <div className="relative max-w-7xl mx-auto px-4">
                 <div className="max-w-7xl mx-auto py-8 px-4 sm:py-8 sm:px-6 lg:px-8">
                     <div className="text-center">

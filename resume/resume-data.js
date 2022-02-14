@@ -65,16 +65,22 @@ export const workExperience = [
 ];
 
 export const skills = {
-    Technical: ['Next.js/React', 'HTML/PHP', 'JavaScript/jQuery', 'CSS/SASS', 'Node.JS', 'MySQL', 'Bootstrap', 'WordPress', 'Adobe XD', 'Adobe Illustrator', 'Adobe Photoshop'],
+    Technical: ['Next.js/React', 'HTML/PHP', 'JavaScript/jQuery', 'CSS/SASS', 'Node.JS', 'MySQL', 'TailwindCSS', 'Wordpress', 'Adobe XD', 'Adobe Illustrator', 'Adobe Photoshop'],
     Professional: ['Effective communication', 'Team player', 'Strong problem solver', 'Quick Learner'],
 };
 
 export const projects = [
     {
-        name: 'LoL Ability Guessing Game',
-        description: "A game where you're given the image and hotkey of a League of Legends champion's ability, and have to guess the name of that ability. Pulls and caches data from the Riot API so it is always up to date.",
-        link: 'lol-ability-guessing-game.vercel.app',
-        tags: ['Next.js', 'React', 'JavaScript', 'TailwindCSS'],
+        name: 'E3Rehab Website',
+        description: 'An extensive Wordpress website complete with a blog for their rehabilitation posts, as well as a Shopify storefront for their digital therapy programs.',
+        link: 'e3rehab.com',
+        tags: ['Wordpress'],
+    },
+    {
+        name: 'Move Well, Be Well Website',
+        description: 'Falling is a project I made during my first quarter at CAT, for Professional Development class. It features a silhouette representing me, and you can scroll to learn things about me, such as my personality colour.',
+        link: 'movewellbewell.ca',
+        tags: ['Next.js', 'React', 'TailwindCSS'],
     },
     {
         name: 'Next.js Notes App',
@@ -83,16 +89,10 @@ export const projects = [
         tags: ['Next.js', 'React', 'TailwindCSS', 'PostgreSQL'],
     },
     {
-        name: 'Falling',
-        description: 'Falling is a project I made during my first quarter at CAT, for Professional Development class. It features a silhouette representing me, and you can scroll to learn things about me, such as my personality colour.',
-        link: 'falling.jasonhalvorson.ca',
-        tags: ['HTML', 'CSS', 'JavaScript'],
-    },
-    {
-        name: 'Inspire.me',
-        description: "Inspire.me is a multi-user-auth website for design/development inspiration. Users can create accounts, add/edit/delete posts, and view others' posts and profiles. It also has a role system where administrator users have permission to delete or edit anyone's posts.",
-        link: 'ssp.jasonhalvorson.ca',
-        tags: ['PHP', 'JavaScript', 'MySQL'],
+        name: 'LoL Ability Guessing Game',
+        description: "A game where you're given the image and hotkey of a League of Legends champion's ability, and have to guess the name of that ability. Pulls and caches data from the Riot API so it is always up to date.",
+        link: 'lol-ability-guessing-game.vercel.app',
+        tags: ['Next.js', 'React', 'TailwindCSS'],
     },
 ];
 
