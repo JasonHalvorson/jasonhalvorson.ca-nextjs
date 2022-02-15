@@ -5,14 +5,14 @@ export default function Custom404() {
     return (
         <div>
             <Head>
-                <title>Jason Halvorson: Home</title>
+                <title>Jason Halvorson: 404</title>
             </Head>
             <div className="min-h-full pt-16 pb-12 flex flex-col mx-auto align-middle">
                 <main className="flex-grow flex flex-col justify-center max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex-shrink-0 flex justify-center">
                         <Link href="/">
                             <a className="inline-flex">
-                                <span className="sr-only">Workflow</span>
+                                <span className="sr-only">JH Logo</span>
                                 <img className="h-12 w-auto" src="/logo.png" alt="JH Logo" />
                             </a>
                         </Link>
