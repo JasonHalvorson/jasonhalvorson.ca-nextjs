@@ -1,10 +1,15 @@
 import { contact, workExperience, skills, projects, education } from '/resume/resume-data.js';
+import Head from 'next/head';
 import Image from 'next/image';
+
 import { GithubIcon, LinkedinIcon } from '../utils/icons';
 
 export default function Resume() {
     return (
         <div className="max-w-5xl px-3 lg:px-5 mx-auto">
+            <Head>
+                <title>Jason Halvorson | Resume</title>
+            </Head>
             <article className="mx-auto p-5 md:p-10 my-5 dark:bg-gray-800 bg-white shadow-jhpurple transition-colors duration-300">
                 <div className="flex flex-col md:flex-row justify-between">
                     <div className="flex items-center space-x-5">
