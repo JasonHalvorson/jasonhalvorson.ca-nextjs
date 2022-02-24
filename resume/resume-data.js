@@ -78,7 +78,7 @@ export const projects = [
     },
     {
         name: 'Move Well, Be Well Website',
-        description: 'Falling is a project I made during my first quarter at CAT, for Professional Development class. It features a silhouette representing me, and you can scroll to learn things about me, such as my personality colour.',
+        description: "A front-end Next.js website showcasing Kelowna Kinesiology's Move Well, Be Well program for remaining active while at home.",
         link: 'movewellbewell.ca',
         tags: ['Next.js', 'React', 'TailwindCSS'],
     },
