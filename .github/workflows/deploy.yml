@@ -7,9 +7,9 @@ on:
     branches: [ master ]
 
 jobs:
-  build_and_deploy:
+  build:
     runs-on: ubuntu-latest
-
+    
     steps:
     - name: Check out repository
       uses: actions/checkout@v2
@@ -34,11 +34,22 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: ${{ env.IMAGE_URL }}
+    outputs:
+      IMAGE_URL: ${{ env.IMAGE_URL }}
+        
+        
+  deployment:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'Production'
+      url: ${{ env.APP_URL }}
 
+    steps:
     - name: Deploy Image to CapRrover
       uses: caprover/deploy-from-github@v1.1.2
       with:
         server: "${{ secrets.CAPROVER_SERVER }}"
         app: "${{ secrets.APP_NAME }}"
         token: "${{ secrets.APP_TOKEN }}"
-        image: ${{ env.IMAGE_URL }}
+        image: ${{ needs.build.outputs.IMAGE_URL }}
