@@ -1,8 +1,8 @@
 {
-    "title": "CSS Landing Page",
-    "description": "A project showcasing CSS Animations, and the use of Media Queries to achieve responsiveness on any screen size.",
-    "image": "css-landing-page.png",
-    "link": "https://css-landing-page.jasonhalvorson.ca",
-    "tags": ["HTML", "CSS"],
-    "position": 7
+  "title": "CSS Landing Page",
+  "description": "A project showcasing CSS Animations, and the use of Media Queries to achieve responsiveness on any screen size.",
+  "image": "css-landing-page.png",
+  "link": "https://css-landing-page.jasonhalvorson.ca",
+  "tags": ["HTML", "CSS"],
+  "position": 7
 }
