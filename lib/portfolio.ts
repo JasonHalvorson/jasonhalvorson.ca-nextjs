@@ -6,14 +6,14 @@ const portfolioDirectory = path.join(process.cwd(), 'portfolio');
 
 export function getSortedPiecesData(): PortfolioPiece[] {
   // Get file names under /portfolio
-  const fileNames = fs.readdirSync(portfolioDirectory);
-  const allPiecesData = fileNames.map((fileName) => {
+  const fileNames: string[] = fs.readdirSync(portfolioDirectory);
+  const allPiecesData: PortfolioPiece[] = fileNames.map((fileName: string) => {
     // Remove ".json" from file name to get slug
-    const slug = fileName.replace(/\.json$/, '');
+    const slug: string = fileName.replace(/\.json$/, '');
 
     // Read json file as string
-    const fullPath = path.join(portfolioDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const fullPath: string = path.join(portfolioDirectory, fileName);
+    const fileContents: string = fs.readFileSync(fullPath, 'utf8');
 
     // Parse string as JSON
     const pieceData: PieceData = JSON.parse(fileContents);
@@ -22,7 +22,7 @@ export function getSortedPiecesData(): PortfolioPiece[] {
       ...pieceData,
     };
   });
-  return allPiecesData.sort((a, b) => {
+  return allPiecesData.sort((a: PortfolioPiece, b: PortfolioPiece) => {
     if (a.position > b.position) {
       return 1;
     } else {
@@ -31,20 +31,20 @@ export function getSortedPiecesData(): PortfolioPiece[] {
   });
 }
 
-// export function getAllPieceSlugs() {
-//   const fileNames = fs.readdirSync(portfolioDirectory);
-//   return fileNames.map((fileName) => {
-//     return {
-//       params: {
-//         piece: fileName.replace(/\.json$/, ''),
-//       },
-//     };
-//   });
-// }
+export function getAllPieceSlugs(): { params: { piece: string } }[] {
+  const fileNames: string[] = fs.readdirSync(portfolioDirectory);
+  return fileNames.map((fileName: string) => {
+    return {
+      params: {
+        piece: fileName.replace(/\.json$/, ''),
+      },
+    };
+  });
+}
 
-// export function getPieceData(piece) {
-//   const fullPath = path.join(portfolioDirectory, `${piece}.json`);
-//   const fileContents = fs.readFileSync(fullPath, 'utf8');
+export function getPieceData(piece: string): PieceData {
+  const fullPath: string = path.join(portfolioDirectory, `${piece}.json`);
+  const fileContents: string = fs.readFileSync(fullPath, 'utf8');
 
-//   return JSON.parse(fileContents);
-// }
+  return JSON.parse(fileContents);
+}

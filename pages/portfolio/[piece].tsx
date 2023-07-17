@@ -1,9 +1,15 @@
 import Head from 'next/head';
 
-import { getAllPieceSlugs, getPieceData } from '../../lib/portfolio';
-import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import { getAllPieceSlugs, getPieceData } from '@/lib/portfolio';
+import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
+import { PieceData } from '@/types/portfolio';
+import { GetStaticProps } from 'next';
 
-export default function PortfolioPiece({ pieceData }) {
+interface PortfolioPieceProps {
+  pieceData: PieceData;
+}
+
+export default function PortfolioPiece({ pieceData }: PortfolioPieceProps) {
   return (
     <div>
       <Head>
@@ -32,10 +38,10 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
-  const pieceData = getPieceData(params.piece);
+export const getStaticProps: GetStaticProps<PortfolioPieceProps, { piece: string }> = async ({ params }) => {
+  const pieceData = getPieceData(params!.piece);
 
   return {
     props: { pieceData },
   };
-}
+};
