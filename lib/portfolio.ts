@@ -22,7 +22,9 @@ export function getSortedPiecesData(): PortfolioPiece[] {
       ...pieceData,
     };
   });
+  
   return allPiecesData.sort((a: PortfolioPiece, b: PortfolioPiece) => {
+
     if (a.position > b.position) {
       return 1;
     } else {
@@ -48,3 +50,4 @@ export function getPieceData(piece: string): PieceData {
 
   return JSON.parse(fileContents);
 }
+
