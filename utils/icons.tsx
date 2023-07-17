@@ -1,5 +1,7 @@
+import { ReactElement } from 'react';
+
 // JS
-export function JavascriptIcon() {
+export function JavascriptIcon(): ReactElement {
   return (
     <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
       <path
@@ -10,7 +12,7 @@ export function JavascriptIcon() {
   );
 }
 
-export function NextjsIcon() {
+export function NextjsIcon(): ReactElement {
   return (
     <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
       <path
@@ -21,7 +23,7 @@ export function NextjsIcon() {
   );
 }
 
-export function ReactIcon() {
+export function ReactIcon(): ReactElement {
   return (
     <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
       <path
@@ -32,7 +34,7 @@ export function ReactIcon() {
   );
 }
 
-export function NodejsIcon() {
+export function NodejsIcon(): ReactElement {
   return (
     <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
       <path
@@ -44,7 +46,7 @@ export function NodejsIcon() {
 }
 
 // Python
-export function PythonIcon() {
+export function PythonIcon(): ReactElement {
   return (
     <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
       <path
@@ -56,7 +58,7 @@ export function PythonIcon() {
 }
 
 // CSS/SASS
-export function CssIcon() {
+export function CssIcon(): ReactElement {
   return (
     <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
       <path fill="currentColor" d="M0 32l34.9 395.8L192 480l157.1-52.2L384 32H0zm313.1 80l-4.8 47.3L193 208.6l-.3 .1h111.5l-12.8 146.6-98.2 28.7-98.8-29.2-6.4-73.9h48.9l3.2 38.3 52.6 13.3 54.7-15.4 3.7-61.6-166.3-.5v-.1l-.2 .1-3.6-46.3L193.1 162l6.5-2.7H76.7L70.9 112h242.2z" />
@@ -64,7 +66,7 @@ export function CssIcon() {
   );
 }
 
-export function SassIcon() {
+export function SassIcon(): ReactElement {
   return (
     <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
       <path
@@ -76,7 +78,7 @@ export function SassIcon() {
 }
 
 // HTML/PHP
-export function HtmlIcon() {
+export function HtmlIcon(): ReactElement {
   return (
     <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
       <path fill="currentColor" d="M0 32l34.9 395.8L191.5 480l157.6-52.2L384 32H0zm308.2 127.9H124.4l4.1 49.4h175.6l-13.6 148.4-97.9 27v.3h-1.1l-98.7-27.3-6-75.8h47.7L138 320l53.5 14.5 53.7-14.5 6-62.2H84.3L71.5 112.2h241.1l-4.4 47.7z" />
@@ -84,7 +86,7 @@ export function HtmlIcon() {
   );
 }
 
-export function PhpIcon() {
+export function PhpIcon(): ReactElement {
   return (
     <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
       <path
@@ -96,7 +98,7 @@ export function PhpIcon() {
 }
 
 // Linux
-export function UbuntuIcon() {
+export function UbuntuIcon(): ReactElement {
   return (
     <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
       <path
@@ -107,7 +109,7 @@ export function UbuntuIcon() {
   );
 }
 
-export function CentosIcon() {
+export function CentosIcon(): ReactElement {
   return (
     <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
       <path
@@ -119,7 +121,7 @@ export function CentosIcon() {
 }
 
 // GitHub
-export function GithubIcon() {
+export function GithubIcon(): ReactElement {
   return (
     <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
       <path
@@ -131,7 +133,7 @@ export function GithubIcon() {
 }
 
 // LinkedIn
-export function LinkedinIcon() {
+export function LinkedinIcon(): ReactElement {
   return (
     <svg aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
       <path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />

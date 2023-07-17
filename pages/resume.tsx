@@ -1,10 +1,11 @@
-import { contact, workExperience, skills, projects, education } from '/resume/resume-data.js';
+import { contact, workExperience, skills, projects, education } from '@/resume/resume-data';
 import Head from 'next/head';
 import Image from 'next/image';
+import { ReactElement } from 'react';
 
-import { GithubIcon, LinkedinIcon } from '../utils/icons';
+import { GithubIcon, LinkedinIcon } from '@/utils/icons';
 
-export default function Resume() {
+export default function Resume(): ReactElement {
   return (
     <div className="max-w-5xl px-3 lg:px-5 mx-auto">
       <Head>
@@ -61,7 +62,7 @@ export default function Resume() {
               <div key={skillType} className="grid grid-cols-1 gap-y-2 mt-3">
                 <h3 className="md:text-right font-bold dark:text-white text-gray-900 transition-colors duration-300">{skillType}</h3>
                 <ul role="list">
-                  {skills[skillType].map((skill) => (
+                  {skills[skillType as keyof typeof skills].map((skill: string) => (
                     <li key={skill} className="py-1">
                       <p className="text-sm md:text-right dark:text-white text-gray-900 transition-colors duration-300">{skill}</p>
                     </li>
@@ -88,7 +89,7 @@ export default function Resume() {
                           ))}
                         </div>
                       </div>
-                      <a href={`https://${project.link}`} target="_blank" className="text-jhpurple">
+                      <a href={project.link} target="_blank" className="text-jhpurple">
                         {project.link}
                       </a>
                       <p className="dark:text-gray-400 text-gray-600 transition-colors duration-300">{project.description}</p>

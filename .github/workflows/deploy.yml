@@ -41,7 +41,7 @@ jobs:
     needs: build
     environment:
       name: 'Production'
-      url: ${{ env.APP_URL }}
+      url: ${{ vars.APP_URL }}
 
     steps:
     - name: Deploy Image to CapRrover

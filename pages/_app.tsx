@@ -1,12 +1,14 @@
 import { useRouter } from 'next/router';
 import Script from 'next/script';
 import useAckee from 'use-ackee';
+import type { AppProps } from 'next/app';
 
 import 'tailwindcss/tailwind.css';
 
-import Sidenav from '../components/Sidenav/Sidenav';
+import Sidenav from '@/components/Sidenav/Sidenav';
+import { ReactElement } from 'react';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps): ReactElement {
   const { pathname } = useRouter();
 
   useAckee(pathname, {

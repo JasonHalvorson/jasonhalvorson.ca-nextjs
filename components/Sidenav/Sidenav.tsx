@@ -1,38 +1,54 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { FolderIcon, HomeIcon, Bars3Icon, DocumentTextIcon, XMarkIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
-import { Fragment, useState } from 'react';
+import React, { Fragment, ReactElement, ReactNode, useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { GithubIcon, LinkedinIcon } from '../../utils/icons';
+import { GithubIcon, LinkedinIcon } from '@/utils/icons';
 import ContactButton from './ContactButton';
 import DarkModeToggle from './DarkModeToggle';
 
-const navigation = [
+interface NavigationItem {
+  name: string;
+  href: string;
+  icon: React.ElementType;
+}
+
+interface SocialItem {
+  name: string;
+  href: string;
+  icon: (props: React.SVGProps<SVGElement>) => ReactElement;
+}
+
+interface SidenavProps {
+  children?: ReactNode;
+}
+
+const navigation: NavigationItem[] = [
   { name: 'Home', href: '/', icon: HomeIcon },
   { name: 'Resume', href: '/resume', icon: DocumentTextIcon },
   { name: 'Portfolio', href: '/portfolio', icon: FolderIcon },
 ];
 
-const socials = [
+const socials: SocialItem[] = [
   {
     name: 'GitHub',
     href: 'https://github.com/JasonHalvorson/jasonhalvorson.ca-nextjs',
-    icon: (props) => <GithubIcon {...props} />,
+    icon: (props: React.SVGProps<SVGElement>) => <GithubIcon {...props} />,
   },
   {
     name: 'LinkedIn',
     href: 'https://www.linkedin.com/in/jason-halvorson/',
-    icon: (props) => <LinkedinIcon {...props} />,
+    icon: (props: React.SVGProps<SVGElement>) => <LinkedinIcon {...props} />,
   },
 ];
 
-function classNames(...classes) {
+function classNames(...classes: string[]): string {
   return classes.filter(Boolean).join(' ');
 }
 
-function isCurrent(href) {
+function isCurrent(href: string): boolean {
   const router = useRouter();
   if (href === '/') {
     return router.asPath === '/';
@@ -40,14 +56,14 @@ function isCurrent(href) {
   return router.asPath.startsWith(href);
 }
 
-function is404() {
+function is404(): boolean {
   const router = useRouter();
   return router.route === '/404';
 }
 
-const currentYear = new Date().getFullYear();
+const currentYear: number = new Date().getFullYear();
 
-export default function Sidenav(props) {
+export default function Sidenav(props: SidenavProps): ReactElement {
   const [sidenavOpen, setSidenavOpen] = useState(false);
 
   return (
