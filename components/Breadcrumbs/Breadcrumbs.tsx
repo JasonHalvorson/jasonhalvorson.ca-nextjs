@@ -1,13 +1,19 @@
 import { HomeIcon } from '@heroicons/react/24/solid';
-import { useRouter } from 'next/router';
+import { NextRouter, useRouter } from 'next/router';
 import Link from 'next/link';
+import { ReactElement } from 'react';
 
-function getSlug() {
-  const router = useRouter();
+interface SlugObject {
+  fullSlug: string;
+  slug: string;
+}
+
+function getSlug(): SlugObject[] {
+  const router: NextRouter = useRouter();
   // seperate by /
-  const splitArray = router.asPath.split('/');
+  const splitArray: string[] = router.asPath.split('/');
   // cut empty strings out of the array
-  const filteredArray = splitArray.filter((item) => item !== '');
+  const filteredArray: string[] = splitArray.filter((item) => item !== '');
 
   // create objects inside slugs array
   // slugs example:
@@ -15,8 +21,8 @@ function getSlug() {
   //     { fullSlug: '/portfolio/item-1', slug: 'item-1' },
   //     { fullSlug: '/portfolio/item-2', slug: 'item-2' }
   // ]
-  const slugs = filteredArray.map((item, index) => {
-    const fullSlug = `/${filteredArray.slice(0, index + 1).join('/')}`;
+  const slugs: SlugObject[] = filteredArray.map((item, index) => {
+    const fullSlug: string = `/${filteredArray.slice(0, index + 1).join('/')}`;
     return {
       fullSlug,
       slug: item,
@@ -26,7 +32,7 @@ function getSlug() {
   return slugs;
 }
 
-export default function Breadcrumbs() {
+export default function Breadcrumbs(): ReactElement {
   return (
     <nav className="dark:bg-gray-800 bg-white border-b dark:border-gray-700 border-gray-200 flex transition-colors duration-300" aria-label="Breadcrumb">
       <ol role="list" className="max-w-screen-xl w-full mx-auto px-4 flex space-x-4 sm:px-6 lg:px-8">

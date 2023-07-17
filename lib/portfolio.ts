@@ -1,9 +1,10 @@
 import fs from 'fs';
 import path from 'path';
+import { PortfolioPiece, PieceData } from '@/types';
 
 const portfolioDirectory = path.join(process.cwd(), 'portfolio');
 
-export function getSortedPiecesData() {
+export function getSortedPiecesData(): PortfolioPiece[] {
   // Get file names under /portfolio
   const fileNames = fs.readdirSync(portfolioDirectory);
   const allPiecesData = fileNames.map((fileName) => {
@@ -15,7 +16,7 @@ export function getSortedPiecesData() {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
 
     // Parse string as JSON
-    const pieceData = JSON.parse(fileContents);
+    const pieceData: PieceData = JSON.parse(fileContents);
     return {
       slug,
       ...pieceData,
@@ -30,20 +31,20 @@ export function getSortedPiecesData() {
   });
 }
 
-export function getAllPieceSlugs() {
-  const fileNames = fs.readdirSync(portfolioDirectory);
-  return fileNames.map((fileName) => {
-    return {
-      params: {
-        piece: fileName.replace(/\.json$/, ''),
-      },
-    };
-  });
-}
+// export function getAllPieceSlugs() {
+//   const fileNames = fs.readdirSync(portfolioDirectory);
+//   return fileNames.map((fileName) => {
+//     return {
+//       params: {
+//         piece: fileName.replace(/\.json$/, ''),
+//       },
+//     };
+//   });
+// }
 
-export function getPieceData(piece) {
-  const fullPath = path.join(portfolioDirectory, `${piece}.json`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
+// export function getPieceData(piece) {
+//   const fullPath = path.join(portfolioDirectory, `${piece}.json`);
+//   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
-  return JSON.parse(fileContents);
-}
+//   return JSON.parse(fileContents);
+// }

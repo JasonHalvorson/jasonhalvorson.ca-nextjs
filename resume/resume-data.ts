@@ -1,6 +1,14 @@
+import { HeroIcon } from '@/types';
 import { PhoneIcon, EnvelopeIcon, GlobeAltIcon, MapPinIcon } from '@heroicons/react/24/outline';
 
-export const contact = [
+interface Contact {
+  type: string;
+  icon: HeroIcon;
+  value: string;
+  link?: string;
+}
+
+export const contact: Contact[] = [
   {
     type: 'Phone',
     icon: PhoneIcon,
@@ -26,7 +34,15 @@ export const contact = [
   },
 ];
 
-export const workExperience = [
+interface WorkExperience {
+  id: number;
+  title: string;
+  company: string;
+  period: string;
+  description: string;
+}
+
+export const workExperience: WorkExperience[] = [
   {
     id: 5,
     title: 'Web Developer',
@@ -64,39 +80,57 @@ export const workExperience = [
   },
 ];
 
-export const skills = {
+interface Skills {
+  Technical: string[];
+  Professional: string[];
+}
+
+export const skills: Skills = {
   Technical: ['Next.js/React', 'HTML/PHP', 'JavaScript/jQuery', 'CSS/SASS', 'Node.JS', 'MySQL', 'TailwindCSS', 'Wordpress', 'Adobe XD', 'Adobe Illustrator', 'Adobe Photoshop'],
   Professional: ['Effective communication', 'Team player', 'Strong problem solver', 'Quick Learner'],
 };
 
-export const projects = [
+interface Project {
+  name: string;
+  description: string;
+  link: string;
+  tags: string[];
+}
+
+export const projects: Project[] = [
   {
     name: 'E3Rehab Website',
     description: 'An extensive Wordpress website complete with a blog for their rehabilitation posts, as well as a Shopify storefront for their digital therapy programs.',
-    link: 'e3rehab.com',
-    tags: ['Wordpress'],
+    link: 'https://e3rehab.com',
+    tags: ["Wordpress"],
   },
   {
     name: 'Move Well, Be Well Website',
     description: "A front-end Next.js website showcasing Kelowna Kinesiology's Move Well, Be Well program for remaining active while at home.",
-    link: 'movewellbewell.ca',
-    tags: ['Next.js', 'React', 'TailwindCSS'],
+    link: 'https://movewellbewell.ca',
+    tags: ["Next.js", "React", "TailwindCSS"],
   },
   {
     name: 'Next.js Notes App',
     description: 'An app for writing shareable notes. It features an expiration system, and allows users to use markdown syntax in their notes. Notes are stored in a PostgreSQL database.',
-    link: 'notes.jasonhalvorson.ca',
-    tags: ['Next.js', 'React', 'TailwindCSS', 'PostgreSQL'],
+    link: 'https://notes.jasonhalvorson.ca',
+    tags: ["Next.js", "React", "TailwindCSS", "PostgreSQL"],
   },
   {
     name: 'LoL Ability Guessing Game',
     description: "A game where you're given the image and hotkey of a League of Legends champion's ability, and have to guess the name of that ability. Pulls and caches data from the Riot API so it is always up to date.",
-    link: 'lol-ability-guessing-game.vercel.app',
-    tags: ['Next.js', 'React', 'TailwindCSS'],
+    link: 'https://lol-ability-guessing-game.vercel.app',
+    tags: ["Next.js", "React", "TailwindCSS"],
   },
 ];
 
-export const education = [
+interface Education {
+  name: string;
+  description: string;
+  period?: string;
+}
+
+export const education: Education[] = [
   {
     name: 'The Modern React Bootcamp',
     description: 'Udemy.com',

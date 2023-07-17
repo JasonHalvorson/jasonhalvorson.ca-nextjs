@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { ReactElement } from 'react';
 
-export default function Custom404() {
+export default function Custom404(): ReactElement {
   return (
     <div>
       <Head>

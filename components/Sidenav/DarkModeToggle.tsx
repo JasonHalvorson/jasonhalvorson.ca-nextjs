@@ -1,16 +1,14 @@
 import { Switch } from '@headlessui/react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactElement } from 'react';
 
-function classNames(...classes) {
+function classNames(...classes: string[]): string {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function DarkModeToggle() {
-  const [darkMode, setDarkMode] = useState(undefined);
+export default function DarkModeToggle(): ReactElement {
+  const [darkMode, setDarkMode] = useState<boolean>(false);
 
-  useEffect(() => {
-    setDarkMode(document.documentElement.classList.contains('dark'));
-  }, []);
+  useEffect(() => setDarkMode(document.documentElement.classList.contains('dark')), []);
 
   useEffect(() => {
     if (darkMode) {
