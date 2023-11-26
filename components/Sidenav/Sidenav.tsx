@@ -1,9 +1,10 @@
+'use client';
 import { Dialog, Transition } from '@headlessui/react';
-import { FolderIcon, HomeIcon, Bars3Icon, DocumentTextIcon, XMarkIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
-import React, { Fragment, ReactElement, ReactNode, useState } from 'react';
-import { useRouter } from 'next/router';
+import { Bars3Icon, DocumentTextIcon, FolderIcon, HomeIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import React, { Fragment, ReactElement, ReactNode, useState } from 'react';
 
 import { GithubIcon, LinkedinIcon } from '@/utils/icons';
 import ContactButton from './ContactButton';
@@ -49,16 +50,15 @@ function classNames(...classes: string[]): string {
 }
 
 function isCurrent(href: string): boolean {
-  const router = useRouter();
-  if (href === '/') {
-    return router.asPath === '/';
-  }
-  return router.asPath.startsWith(href);
-}
+  const pathname = usePathname();
 
-function is404(): boolean {
-  const router = useRouter();
-  return router.route === '/404';
+  if (!pathname) {
+    return false;
+  } else if (href === '/') {
+    return pathname === '/';
+  } else {
+    return pathname.startsWith(href);
+  }
 }
 
 const currentYear: number = new Date().getFullYear();
@@ -96,12 +96,6 @@ export default function Sidenav(props: SidenavProps): ReactElement {
                       {item.name}
                     </Link>
                   ))}
-                  {is404() && (
-                    <Link href="/404" className={'dark:bg-gray-900 bg-gray-100 dark:text-white text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors duration-300'}>
-                      <QuestionMarkCircleIcon className={'dark:text-gray-300 text-gray-500 mr-3 flex-shrink-0 h-6 w-6 transition-colors duration-300'} aria-hidden="true" />
-                      404
-                    </Link>
-                  )}
                   <ContactButton />
                 </nav>
               </div>
@@ -142,12 +136,6 @@ export default function Sidenav(props: SidenavProps): ReactElement {
                   {item.name}
                 </Link>
               ))}
-              {is404() && (
-                <Link href="/404" className={'dark:bg-gray-900 bg-gray-100 dark:text-white text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md transition-colors duration-300'}>
-                  <QuestionMarkCircleIcon className={'dark:text-gray-300 text-gray-500 mr-3 flex-shrink-0 h-6 w-6 transition-colors duration-300'} aria-hidden="true" />
-                  404
-                </Link>
-              )}
               <ContactButton />
             </nav>
           </div>

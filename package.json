@@ -8,11 +8,11 @@
   "dependencies": {
     "@headlessui/react": "^1.7.15",
     "@heroicons/react": "^2.0.18",
-    "next": "latest",
+    "next": "^14.0.3",
+    "next-themes": "^0.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sharp": "^0.32.2",
-    "use-ackee": "^3.0.1"
+    "sharp": "^0.32.2"
   },
   "devDependencies": {
     "@types/node": "20.4.2",
