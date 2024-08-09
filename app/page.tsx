@@ -1,8 +1,5 @@
-import Head from 'next/head';
-
 import { JavascriptIcon, ReactIcon, NextjsIcon, NodejsIcon, PythonIcon, CssIcon, SassIcon, HtmlIcon, PhpIcon, UbuntuIcon, CentosIcon, GithubIcon } from '@/utils/icons';
 import { HeroIcon } from '@/types/common/heroicon';
-import { ReactElement } from 'react';
 
 interface Technology {
   name: string;
@@ -47,13 +44,9 @@ const technologies: Technology[] = [
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">{props.children}</div>
     </div> This is what was in sidenav.js surrounding {props.children} */
 
-export default function Home(): ReactElement {
+export default function Home() {
   return (
     <div className="dark:bg-gray-900 bg-gray-100 transition-colors duration-300">
-      <Head>
-        <title>Jason Halvorson | Home</title>
-      </Head>
-
       {/* TODO: Deal with sizing on larger monitors */}
       <div className="py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">

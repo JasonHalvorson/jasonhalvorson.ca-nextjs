@@ -1,32 +1,27 @@
 import { Switch } from '@headlessui/react';
-import { useState, useEffect, ReactElement } from 'react';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 function classNames(...classes: string[]): string {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function DarkModeToggle(): ReactElement {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+export default function DarkModeToggle() {
+  const { systemTheme, theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => setDarkMode(document.documentElement.classList.contains('dark')), []);
+  const currentTheme = theme === 'system' ? systemTheme : theme;
+  console.log(currentTheme);
 
-  useEffect(() => {
-    if (darkMode) {
-      window.document.documentElement.classList.add('dark');
+  useEffect(() => setMounted(true), []);
 
-      localStorage.theme = 'dark';
-    } else {
-      window.document.documentElement.classList.remove('dark');
-
-      localStorage.theme = 'light';
-    }
-  }, [darkMode]);
+  if (!mounted) return null;
 
   return (
-    <Switch checked={darkMode} onChange={setDarkMode} className={classNames(darkMode ? 'bg-gray-900' : 'bg-gray-400', 'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-jhpurple')}>
+    <Switch checked={currentTheme === 'dark'} onChange={() => setTheme(currentTheme === 'dark' ? 'light' : 'dark')} className={classNames(currentTheme === 'dark' ? 'bg-gray-900' : 'bg-gray-400', 'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-jhpurple')}>
       <span className="sr-only">Use setting</span>
-      <span className={classNames(darkMode ? 'translate-x-5' : 'translate-x-0', 'pointer-events-none relative inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200')}>
-        <span className={classNames(darkMode ? 'opacity-0 ease-out duration-100' : 'opacity-100 ease-in duration-200', 'absolute inset-0 h-full w-full flex items-center justify-center transition-opacity text-orange-500')} aria-hidden="true">
+      <span className={classNames(currentTheme === 'dark' ? 'translate-x-5' : 'translate-x-0', 'pointer-events-none relative inline-block h-5 w-5 rounded-full bg-white transform ring-0 transition ease-in-out duration-200')}>
+        <span className={classNames(currentTheme === 'dark' ? 'opacity-0 ease-out duration-100' : 'opacity-100 ease-in duration-200', 'absolute inset-0 h-full w-full flex items-center justify-center transition-opacity text-orange-500')} aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
             <path
               fillRule="evenodd"
@@ -35,7 +30,7 @@ export default function DarkModeToggle(): ReactElement {
             />
           </svg>
         </span>
-        <span className={classNames(darkMode ? 'opacity-100 ease-in duration-200' : 'opacity-0 ease-out duration-100', 'absolute inset-0 h-full w-full flex items-center justify-center transition-opacity text-teal-800')} aria-hidden="true">
+        <span className={classNames(currentTheme === 'dark' ? 'opacity-100 ease-in duration-200' : 'opacity-0 ease-out duration-100', 'absolute inset-0 h-full w-full flex items-center justify-center transition-opacity text-teal-800')} aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
           </svg>

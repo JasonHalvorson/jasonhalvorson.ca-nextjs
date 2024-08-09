@@ -1,10 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 ::-moz-selection {
-    /* Code for Firefox */
-    color: white;
-    background: #41C4DD;
+  /* Code for Firefox */
+  color: white;
+  background: #41c4dd;
 }
 
 ::selection {
-    color: white;
-    background: #41C4DD;
+  color: white;
+  background: #41c4dd;
 }
