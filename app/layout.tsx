@@ -1,9 +1,8 @@
 import Sidenav from '@/components/Sidenav/Sidenav';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 import '@/public/main.css';
 import { ThemeProvider } from 'next-themes';
-import 'tailwindcss/tailwind.css';
 
 export const metadata: Metadata = {
   title: 'Jason Halvorson | Home',
